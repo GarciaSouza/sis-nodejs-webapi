@@ -1,0 +1,34 @@
+{
+  "name": "sis-nodejs-webapi",
+  "version": "1.0.0",
+  "description": "A SIS WebApi",
+  "main": "index.js",
+  "dependencies": {
+    "restify": "~2.8",
+    "config": "~1.10",
+    "mongoose": "~3.8",
+    "mongoose-schema-extend": "~0.1",
+    "passport": "~0.2",
+    "passport-http": "~0.2"
+  },
+  "devDependencies": {
+    "mocha": "~2.1",
+    "sinon": "~1.12"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha test/unit/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GarciaSouza/sis-nodejs-webapi"
+  },
+  "keywords": [
+    "Bookshelf"
+  ],
+  "author": "Garcia Souza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GarciaSouza/sis-nodejs-webapi/issues"
+  }
+}

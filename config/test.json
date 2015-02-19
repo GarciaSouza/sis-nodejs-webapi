@@ -1,0 +1,4 @@
+{
+  "port": "8182",
+  "db": "mongodb://localhost/sis_nodejs_test"
+}
