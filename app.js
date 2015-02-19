@@ -19,11 +19,10 @@ server.use(restify.bodyParser({mapParams:false}));
 cors_config(server);
 passport_config(server);
 
-api.Course.createApi(server);
-api.Discipline.createApi(server);
-api.Student.createApi(server);
-api.Teacher.createApi(server);
-api.User.createApi(server);
+api.Courses.createApi(server);
+api.Disciplines.createApi(server);
+api.Students.createApi(server);
+api.Teachers.createApi(server);
 
 server.listen(config.port, function(){
   console.log('%s listenning at %s', server.name, server.url);

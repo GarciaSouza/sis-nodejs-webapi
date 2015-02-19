@@ -1,7 +1,7 @@
 var Student = require('../model/Student');
 
-module.exports.createApi = function StudentCreateApi(server) {
-  server.get('/student', function(req, res, next){
+module.exports.createApi = function StudentsCreateApi(server) {
+  server.get('/students', function(req, res, next){
     Student.find(function(err, data){
       if (err)
         res.send(err);
@@ -11,7 +11,7 @@ module.exports.createApi = function StudentCreateApi(server) {
     });
   });
 
-  server.post('/student', function(req, res, next){
+  server.post('/students', function(req, res, next){
     var newStudent = new Student(req.body);
     newStudent.save(function(err, newDoc){
       if (err)
@@ -24,7 +24,7 @@ module.exports.createApi = function StudentCreateApi(server) {
     });
   });
 
-  server.get('/student/:id', function(req, res, next){
+  server.get('/students/:id', function(req, res, next){
     Student.findById(req.params.id, function(err, doc){
       if (err)
         res.send(err);
@@ -36,7 +36,7 @@ module.exports.createApi = function StudentCreateApi(server) {
     });
   });
 
-  server.put('/student/:id', function(req, res, next){
+  server.put('/students/:id', function(req, res, next){
     Student.findByIdAndUpdate(req.params.id, req.body, function(err, updatedDoc){
       if (err)
         res.send(err);
@@ -49,7 +49,7 @@ module.exports.createApi = function StudentCreateApi(server) {
     next();
   });
 
-  server.del('/student/:id', function(req, res, next){
+  server.del('/students/:id', function(req, res, next){
     Student.findByIdAndRemove(req.params.id, function(err){
       if (err)
         res.send(err);

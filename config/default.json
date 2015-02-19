@@ -1,4 +1,5 @@
 {
   "port": "8080",
-  "db": "mongodb://localhost/sis_nodejs_dev"
+  "db": "mongodb://localhost/sis_nodejs_dev",
+  "passport_session": false
 }

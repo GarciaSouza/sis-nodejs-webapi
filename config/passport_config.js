@@ -1,4 +1,5 @@
 var passport = require('passport'),
+    config = require('config'),
     BasicStrategy = require('passport-http').BasicStrategy,
     User = require('../model/User')
 
@@ -24,10 +25,10 @@ passport.use(new BasicStrategy(
 module.exports = function PassportConfig(server) {
   server.use(passport.initialize());
 
-  // with session
-  //server.use(passport.session());
-  //server.use(passport.authenticate('basic', { session: true }));
-
-  // without session
-  server.use(passport.authenticate('basic', { session: false }));
+  if (config.passport_session) {
+    server.use(passport.session());
+    server.use(passport.authenticate('basic', { session: true }));
+  } else {
+    server.use(passport.authenticate('basic', { session: false }));
+  }
 }

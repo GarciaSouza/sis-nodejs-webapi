@@ -1,7 +1,7 @@
 var Course = require('../model/Course');
 
-module.exports.createApi = function CourseCreateApi(server) {
-  server.get('/course', function(req, res, next){
+module.exports.createApi = function CoursesCreateApi(server) {
+  server.get('/courses', function(req, res, next){
     Course.find(function(err, data){
       if (err)
         res.send(err);
@@ -11,7 +11,7 @@ module.exports.createApi = function CourseCreateApi(server) {
     });
   });
 
-  server.post('/course', function(req, res, next){
+  server.post('/courses', function(req, res, next){
     var newCourse = new Course(req.body);
     newCourse.save(function(err, newDoc){
       if (err)
@@ -24,7 +24,7 @@ module.exports.createApi = function CourseCreateApi(server) {
     });
   });
 
-  server.get('/course/:id', function(req, res, next){
+  server.get('/courses/:id', function(req, res, next){
     Course.findById(req.params.id, function(err, doc){
       if (err)
         res.send(err);
@@ -36,7 +36,7 @@ module.exports.createApi = function CourseCreateApi(server) {
     });
   });
 
-  server.put('/course/:id', function(req, res, next){
+  server.put('/courses/:id', function(req, res, next){
     Course.findByIdAndUpdate(req.params.id, req.body, function(err, updatedDoc){
       if (err)
         res.send(err);
@@ -49,7 +49,7 @@ module.exports.createApi = function CourseCreateApi(server) {
     next();
   });
 
-  server.del('/course/:id', function(req, res, next){
+  server.del('/courses/:id', function(req, res, next){
     Course.findByIdAndRemove(req.params.id, function(err){
       if (err)
         res.send(err);

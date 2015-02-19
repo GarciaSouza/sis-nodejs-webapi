@@ -1,7 +1,7 @@
 var Teacher = require('../model/Teacher');
 
-module.exports.createApi = function TeacherCreateApi(server) {
-  server.get('/teacher', function(req, res, next){
+module.exports.createApi = function TeachersCreateApi(server) {
+  server.get('/teachers', function(req, res, next){
     Teacher.find(function(err, data){
       if (err)
         res.send(err);
@@ -11,7 +11,7 @@ module.exports.createApi = function TeacherCreateApi(server) {
     });
   });
 
-  server.post('/teacher', function(req, res, next){
+  server.post('/teachers', function(req, res, next){
     var newTeacher = new Teacher(req.body);
     newTeacher.save(function(err, newDoc){
       if (err)
@@ -24,7 +24,7 @@ module.exports.createApi = function TeacherCreateApi(server) {
     });
   });
 
-  server.get('/teacher/:id', function(req, res, next){
+  server.get('/teachers/:id', function(req, res, next){
     Teacher.findById(req.params.id, function(err, doc){
       if (err)
         res.send(err);
@@ -36,7 +36,7 @@ module.exports.createApi = function TeacherCreateApi(server) {
     });
   });
 
-  server.put('/teacher/:id', function(req, res, next){
+  server.put('/teachers/:id', function(req, res, next){
     Teacher.findByIdAndUpdate(req.params.id, req.body, function(err, updatedDoc){
       if (err)
         res.send(err);
@@ -49,7 +49,7 @@ module.exports.createApi = function TeacherCreateApi(server) {
     next();
   });
 
-  server.del('/teacher/:id', function(req, res, next){
+  server.del('/teachers/:id', function(req, res, next){
     Teacher.findByIdAndRemove(req.params.id, function(err){
       if (err)
         res.send(err);

@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "test": "mocha test/unit/*"
+    "test": "mocha test/func/*"
   },
   "repository": {
     "type": "git",
